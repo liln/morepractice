@@ -8,14 +8,12 @@ def compress(string)
     if r.last == temp
       count += 1
     else
-      r << count if count > 1
+      r << count
       r << temp
       count = 1
     end
   end
-  r.join
+  r << count
+  rs = r.join
+  rs.length < string.length ? rs : string
 end
-
-puts compress("aaabcde")
-puts compress("liiilliaaaaaaanj")
-puts compress("")
